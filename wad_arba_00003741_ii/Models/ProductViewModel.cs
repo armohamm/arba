@@ -18,9 +18,16 @@ namespace wad_arba_00003741_ii.Models
         public float Price { get; set; }
 
         [Required]    
-        public string Category { get; set; }
+        public Category Category { get; set; }
 
         [DisplayName("Available")]
         public bool IsActive { get; set; }
+       
+    }
+
+    public enum Category
+    {
+        Smartphone,
+        Tablets
     }
 }
