@@ -1,4 +1,4 @@
-﻿@model IEnumerable<wad_arba_00003741_ii.Models.ProductViewModel>
+﻿@model wad_arba_00003741_ii.Models.ProductsViewModel
 
 @{
     ViewBag.Title = "Index";
@@ -9,24 +9,37 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
+
+<div>
+    @using (Html.BeginForm("Index", "Home", FormMethod.Get))
+    {
+        @Html.TextBoxFor(model => model.Name)
+        @Html.DropDownListFor(model => model.Category, Model.Categories)
+        @Html.EnumDropDownListFor(model => model.Criteria)
+        @Html.EnumDropDownListFor(model => model.Order)
+
+        <input type="submit" value="filter"/>
+    }
+</div>
+
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Name)
+            Name
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Price)
+            Price
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Category)
+            Category
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.IsActive)
+            Available
         </th>
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
+@foreach (var item in Model.Products) {
     <tr>
         <td>
             @Html.DisplayFor(modelItem => item.Name)
