@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ArbaShop.DAL.Repos
 {
-    class ProductRepo
+    public class ProductRepo
     {
         private ArbaShopDbEntities db;
 
