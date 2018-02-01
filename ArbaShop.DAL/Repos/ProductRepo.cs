@@ -26,5 +26,24 @@ namespace ArbaShop.DAL.Repos
             db.Products.Add(product);
             db.SaveChanges();        
         }
+
+        public void Delete(int Id)
+        {
+            db.Products.Remove(db.Products.Find(Id));
+            db.SaveChanges();
+        }
+
+        public Product GetById(int Id)
+        {
+            return db.Products.Find(Id);
+        }
+
+        public void Update(Product product)
+        {
+            db.Products.Remove(db.Products.Find(product.Id));
+            db.Products.Add(product);
+            db.SaveChanges();
+        }
+
     }
 }

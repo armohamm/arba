@@ -70,13 +70,43 @@ namespace wad_arba_00003741_ii.Controllers
                 repo.Create(product);
                 return RedirectToAction("Index");
             }
-            return View(new ProductViewModel());
+            return View(model);
+        }
+
+        [HttpGet]
+        public ActionResult Delete(int Id)
+        {
+            new ProductRepo().Delete(Id);
+            return RedirectToAction("Index");
+        }
+
+        [HttpGet]
+        public ActionResult Edit(int Id)
+        {
+
+            ProductViewModel model = MapToModel(new ProductRepo().GetById(Id));
+            return View(model);
+        }
+
+        [HttpPost]
+        public ActionResult Edit(ProductViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                var product = MapFromModel(model);
+                var repo = new ProductRepo();
+                repo.Update(product);
+                return RedirectToAction("Index");
+            }
+
+            return View(model);
         }
 
         private ProductViewModel MapToModel(Product product)
         {
             return new ProductViewModel
             {
+                Id = product.Id,
                 Name = product.Name,
                 Price = product.Price,
                 Category = product.Category,
@@ -88,6 +118,7 @@ namespace wad_arba_00003741_ii.Controllers
         {
             return new Product
             {
+                Id = model.Id,
                 Name = model.Name,
                 Price = model.Price,
                 Category = model.Category,
