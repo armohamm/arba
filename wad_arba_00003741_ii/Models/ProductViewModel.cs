@@ -13,13 +13,15 @@ namespace wad_arba_00003741_ii.Models
 
         [Required]
         [StringLength(25)]
+        [MinLength(2)]
         public string Name { get; set; }
 
         [Required]
         [Range(1, 999999)]
         public decimal Price { get; set; }
 
-        [Required]    
+        [Required]
+        [MinLength(2)]
         public string Category { get; set; }
 
         [DisplayName("Available")]

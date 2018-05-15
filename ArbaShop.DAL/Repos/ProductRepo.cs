@@ -1,6 +1,7 @@
 ﻿using ArbaShop.DAL.Entities;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -27,10 +28,24 @@ namespace ArbaShop.DAL.Repos
             db.SaveChanges();        
         }
 
+        public void CreateAll(List<Product> products)
+        {
+            foreach(Product product in products)
+            {
+                db.Products.Add(product);    
+            }
+
+            db.SaveChanges();
+        }
         public void Delete(int Id)
         {
             db.Products.Remove(db.Products.Find(Id));
             db.SaveChanges();
+        }
+
+        public int Count()
+        {
+            return db.Products.Count();
         }
 
         public Product GetById(int Id)
@@ -42,6 +57,12 @@ namespace ArbaShop.DAL.Repos
         {
             db.Products.Remove(db.Products.Find(product.Id));
             db.Products.Add(product);
+            db.SaveChanges();
+        }
+
+        public void Edit(Product product)
+        {
+            db.Entry(product).State = EntityState.Modified;
             db.SaveChanges();
         }
 

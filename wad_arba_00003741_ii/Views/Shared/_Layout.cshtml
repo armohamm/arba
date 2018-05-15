@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿@using Resources
+
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -17,10 +19,51 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("Arba", "Welcome", "Auth", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
+                    @if (Session["User"] != null)
+                    {
+                        <li>
+                            <a>@Session["User"]</a>
+                        </li>
+                        <li>
+                            @Html.ActionLink(@Global.Products, "Index", "Home")
+                        </li>
+                        <li>
+                            @Html.ActionLink("XML", "XML", "XMLService")
+                        </li>
+                        <li>
+                            @Html.ActionLink("Import", "ImportProduct", "Home")
+                        </li>
+                        <li>
+                            @Html.ActionLink("Logs", "Logs", "Home")
+                        </li>
+                        <li>
+                            @Html.ActionLink("Populate", "Populate", "Home")
+                        </li>
+
+                        <li>
+                            @Html.ActionLink(Global.Logout, "Logout", "Auth")
+                        </li>
+                    }
+                    else
+                    {
+                        <li>
+                            @Html.ActionLink(@Global.Register, "Register", "Auth")
+                        </li>
+                        <li>
+                            @Html.ActionLink(@Global.Login, "Login", "Auth")
+                        </li>
+                    }
+
+                    <li>
+                        @Html.ActionLink("English", ViewContext.RouteData.Values["action"].ToString(), new { culture = "en" })
+                    </li>
+                    <li>
+                        @Html.ActionLink("Russian", ViewContext.RouteData.Values["action"].ToString(), new { culture = "ru" })
+                    </li>
                 </ul>
             </div>
         </div>

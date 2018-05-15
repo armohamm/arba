@@ -1,4 +1,7 @@
-﻿@model wad_arba_00003741_ii.Models.ProductsViewModel
+﻿@model PagedList.IPagedList<ProductsViewModel>
+@using Resources
+@using PagedList.Mvc;
+@using wad_arba_00003741_ii.Models;
 
 @{
     ViewBag.Title = "Index";
@@ -13,6 +16,18 @@
 <div>
     @using (Html.BeginForm("Index", "Home", FormMethod.Get))
     {
+        @Html.TextBox("name", "") <br />
+        @Html.DropDownList("category", new SelectList(ViewBag.Categories, "Value", "Text"))
+        @Html.DropDownList("criteria", EnumHelper.GetSelectList(typeof(SortCriteria)))
+        @Html.DropDownList("order", EnumHelper.GetSelectList(typeof(SortOrder)))
+
+        <input type="submit" value="filter" />
+    }
+</div>
+
+@*<div>
+    @using (Html.BeginForm("Index", "Home", FormMethod.Get))
+    {
         @Html.TextBoxFor(model => model.Name)
         @Html.DropDownListFor(model => model.Category, Model.Categories)
         @Html.EnumDropDownListFor(model => model.Criteria)
@@ -20,7 +35,7 @@
 
         <input type="submit" value="filter"/>
     }
-</div>
+</div>*@
 
 <table class="table">
     <tr>
@@ -39,7 +54,7 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model.Products) {
+@foreach (var item in Model) {
     <tr>
         <td>
             @Html.DisplayFor(modelItem => item.Name)
@@ -62,3 +77,8 @@
 }
 
 </table>
+
+Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+
+@Html.PagedListPager(Model, page => Url.Action("Index",new { page, order = ViewBag.Order, name = ViewBag.Name, criteria = ViewBag.Criteria, category = ViewBag.Category }))
+Showing @Model.FirstItemOnPage - @Model.LastItemOnPage from @Model.TotalItemCount Books

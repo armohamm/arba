@@ -1,0 +1,92 @@
+﻿@using wad_arba_00003741_ii.Models
+
+@{
+    ViewBag.Title = "ImportProduct";
+}
+
+<h2>Product Import</h2>
+
+@using (Html.BeginForm("ImportProduct", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <input type="file" class="input-box" id="fileToImport" name="fileToImport">
+    <input type="submit" value="Upload">
+}
+
+<h2>@ViewBag.Result</h2>
+<table border="1" cellpadding="10" cellspacing="0">
+    <thead>
+        <tr>
+            <th>
+                Name
+                @*@Html.Raw(Resources.Product.Name)*@
+            </th>
+            <th>
+                Price
+                @*@Html.Raw(Resources.Product.Price)*@
+            </th>
+            <th>
+                Category
+                @*@Html.Raw(Resources.Product.Category)*@
+            </th>
+            <th>
+                Available
+                @*@Html.Raw(Resources.Product.Available)*@
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (ViewBag.Products != null)
+        {
+            var products = ViewBag.Products as List<ProductImportModel>;
+            if (products != null)
+            {
+                foreach (var product in products)
+                {
+                    <tr>
+                        <td>@product.Name</td>
+                        <td>@product.Price</td>
+                        <td>@product.Category</td>
+                        <td>@product.Available </td>
+                    </tr>
+                }
+            }
+        }
+    </tbody>
+</table>
+
+<br/>
+
+<h6>
+    Number of products added: @ViewBag.NumOfProducts
+</h6>
+
+<br/>
+
+@if (ViewBag.ProductsError != null)
+{
+    <table border="1" cellpadding="10" cellspacing="0">
+        <thead>
+            <tr>
+                <th>
+                    Errors (@ViewBag.NumOfErrors)
+                    @*@Global.ErrorInFollowingLines*@
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @{
+                var errors = ViewBag.ProductsError as List<string>;
+                if (errors != null)
+                {
+                    foreach (var error in errors)
+                    {
+                        <tr>
+                            <td>@error</td>
+                        </tr>
+                    }
+                }
+                }
+        </tbody>
+
+    </table>
+}

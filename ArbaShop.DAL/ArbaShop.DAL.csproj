@@ -63,69 +63,61 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Entities\ArbaShopDbContext.Context.cs">
+    <Compile Include="Entities\ArbaDbContext.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>ArbaShopDbContext.Context.tt</DependentUpon>
+      <DependentUpon>ArbaDbContext.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Entities\ArbaShopDbContext.cs">
+    <Compile Include="Entities\ArbaDbContext.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>ArbaShopDbContext.tt</DependentUpon>
+      <DependentUpon>ArbaDbContext.tt</DependentUpon>
     </Compile>
-    <Compile Include="Entities\ArbaShopDbContext.Designer.cs">
+    <Compile Include="Entities\ArbaDbContext.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>ArbaShopDbContext.edmx</DependentUpon>
+      <DependentUpon>ArbaDbContext.edmx</DependentUpon>
     </Compile>
     <Compile Include="Entities\Log.cs">
-      <DependentUpon>ArbaShopDbContext.tt</DependentUpon>
+      <DependentUpon>ArbaDbContext.tt</DependentUpon>
     </Compile>
     <Compile Include="Entities\Product.cs">
-      <DependentUpon>ArbaShopDbContext.tt</DependentUpon>
+      <DependentUpon>ArbaDbContext.tt</DependentUpon>
     </Compile>
     <Compile Include="Entities\User.cs">
-      <DependentUpon>ArbaShopDbContext.tt</DependentUpon>
+      <DependentUpon>ArbaDbContext.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repos\LogRepo.cs" />
     <Compile Include="Repos\ProductRepo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="ArbaShopDb.mdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ArbaShopDb_log.ldf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <DependentUpon>ArbaShopDb.mdf</DependentUpon>
-    </Content>
-    <Content Include="Entities\ArbaShopDbContext.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ArbaShopDbContext.edmx</DependentUpon>
-      <LastGenOutput>ArbaShopDbContext.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Entities\ArbaShopDbContext.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ArbaShopDbContext.edmx</DependentUpon>
-      <LastGenOutput>ArbaShopDbContext.cs</LastGenOutput>
-    </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <EntityDeploy Include="Entities\ArbaShopDbContext.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>ArbaShopDbContext.Designer.cs</LastGenOutput>
-    </EntityDeploy>
+    <Compile Include="Repos\UserRepo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Config" />
-    <None Include="Entities\ArbaShopDbContext.edmx.diagram">
-      <DependentUpon>ArbaShopDbContext.edmx</DependentUpon>
+    <EntityDeploy Include="Entities\ArbaDbContext.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ArbaDbContext.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Entities\ArbaDbContext.edmx.diagram">
+      <DependentUpon>ArbaDbContext.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Entities\ArbaDbContext.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ArbaDbContext.edmx</DependentUpon>
+      <LastGenOutput>ArbaDbContext.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Entities\ArbaDbContext.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ArbaDbContext.edmx</DependentUpon>
+      <LastGenOutput>ArbaDbContext.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.6">
       <Visible>False</Visible>

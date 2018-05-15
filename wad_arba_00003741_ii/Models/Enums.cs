@@ -8,6 +8,7 @@ namespace wad_arba_00003741_ii.Models
     public enum SortCriteria
     {
         Name,
+        Category,
         Price
     }
 

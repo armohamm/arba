@@ -12,7 +12,8 @@ using wad_arba_00003741_ii.Models;
 
 namespace wad_arba_00003741_ii.Controllers
 {
-    public class XMLServiceController : Controller
+    [Authorize]
+    public class XMLServiceController : BaseController
     {
         // GET: XMLService
         public ActionResult XML(string format)
@@ -27,6 +28,10 @@ namespace wad_arba_00003741_ii.Controllers
             {
                 xDoc.Add(new XProcessingInstruction("xml-stylesheet", "type='text/xsl' href='/xml/productToHTML.xslt'"));
 
+            }
+            else if (format == "csv")
+            {
+                xDoc.Add(new XProcessingInstruction("xml-stylesheet", "type='text/xsl' href='/xml/xmlTest.xslt'"));
             }
 
             xDoc.Add(new XElement("Products", products.Select(ProductToXML)));

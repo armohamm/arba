@@ -1,0 +1,64 @@
+﻿
+@{
+    ViewBag.Title = "Logs";
+}
+
+<h2>Logs</h2>
+
+<div ng-app="logs">
+    <div ng-controller="LogsController">
+        <table border="1" cellpadding="10" cellspacing="0">
+            <thead>
+                <tr>
+                    <th>
+                        Date
+                        @*@Html.Raw(Resources.Product.Name)*@
+                    </th>
+                    <th>
+                        Username
+                        @*@Html.Raw(Resources.Product.Price)*@
+                    </th>
+                    <th>
+                        IP
+                        @*@Html.Raw(Resources.Product.Category)*@
+                    </th>
+                    <th>
+                        Controller
+                        @*@Html.Raw(Resources.Product.Available)*@
+                    </th>
+                    <th>
+                        Action
+                        @*@Html.Raw(Resources.Product.Available)*@
+                    </th>
+                    <th>
+                        Http Method
+                        @*@Html.Raw(Resources.Product.Available)*@
+                    </th>
+                    <th>
+                        Parameters
+                        @*@Html.Raw(Resources.Product.Available)*@
+                    </th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr ng-repeat="log in logs track by $index">
+                    <td>
+                         {{ log.Date}}
+                    </td>
+                    <td>{{log.Username}}</td>
+                    <td>{{log.IP}}</td>
+                    <td>{{log.Controller}}</td>
+                    <td>{{log.Action}}</td>
+                    <td>{{log.HttpMethod}}</td>
+                    <td>{{log.Params}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<script type="text/javascript" src="~/Scripts/angular.min.js"></script>
+<script type="text/javascript" src="~/Scripts/Logs.js"></script>
+<script type="text/javascript" src="~/Scripts/LogsController.js"></script>
+

@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "wad_arba_00003741_ii", "wad
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArbaShop.DAL", "ArbaShop.DAL\ArbaShop.DAL.csproj", "{76E3018E-65D6-4B80-9E01-DD4D3DA6BC9F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Resources", "Resources\Resources.csproj", "{E96145FF-D96D-46E3-BF44-D0A9B417018E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "wad_arba_00003741_unit_test", "wad_arba_00003741_unit_test\wad_arba_00003741_unit_test.csproj", "{45B2F696-A107-43AF-81D6-5A373C6CCD41}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{76E3018E-65D6-4B80-9E01-DD4D3DA6BC9F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{76E3018E-65D6-4B80-9E01-DD4D3DA6BC9F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{76E3018E-65D6-4B80-9E01-DD4D3DA6BC9F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E96145FF-D96D-46E3-BF44-D0A9B417018E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E96145FF-D96D-46E3-BF44-D0A9B417018E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E96145FF-D96D-46E3-BF44-D0A9B417018E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E96145FF-D96D-46E3-BF44-D0A9B417018E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{45B2F696-A107-43AF-81D6-5A373C6CCD41}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{45B2F696-A107-43AF-81D6-5A373C6CCD41}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{45B2F696-A107-43AF-81D6-5A373C6CCD41}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{45B2F696-A107-43AF-81D6-5A373C6CCD41}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
